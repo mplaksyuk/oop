@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no" ?>
+<BeerMarket>
+    <Beer Name="Biba" Type="Dark" Alco="true" Manufacturer="Bad">
+        <Ingredients>
+            <Ingredient>Water</Ingredient>
+            <Ingredient>Hop</Ingredient>
+            <Ingredient>Sugar</Ingredient>
+        </Ingredients>
+
+        <BeerChars AlcoPercentage="4.3" Opacity="0.3" Filtered="false" NutritionalValue="125"></BeerChars>
+        <Bottle Capacity="0.5" Material="Steal"></Bottle>
+    </Beer>
+   <Beer Name="Boba" Type="Lager" Alco="true" Manufacturer="IPA">
+        <Ingredients>
+            <Ingredient>Water</Ingredient>
+            <Ingredient>Hop</Ingredient>
+            <Ingredient>Malt</Ingredient>
+            <Ingredient>Yeast</Ingredient>
+        </Ingredients>
+
+        <BeerChars AlcoPercentage="0" Opacity="1" Filtered="true" NutritionalValue="200"></BeerChars>
+        <Bottle Capacity="1.0" Material="Glass"></Bottle>
+    </Beer>
+    <Beer Name="Baba" Type="Light" Alco="false" Manufacturer="Chernigivke">
+        <Ingredients>
+            <Ingredient>Water</Ingredient>
+            <Ingredient>Hop</Ingredient>
+            <Ingredient>Sugar</Ingredient>
+            <Ingredient>Yeast</Ingredient>
+            <Ingredient>Malt</Ingredient>
+        </Ingredients>
+
+        <BeerChars AlcoPercentage="8.2" Opacity="0.5" Filtered="true" NutritionalValue="346"></BeerChars>
+        <Bottle Capacity="0.5" Material="Steal"></Bottle>
+    </Beer>
+</BeerMarket>

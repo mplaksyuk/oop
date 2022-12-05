@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Created with Liquid Technologies Online Tools 1.0 (https://www.liquid-technologies.com) -->
+<xs:schema attributeFormDefault="unqualified" elementFormDefault="qualified" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:element name="BeerMarket">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element maxOccurs="unbounded" name="Beer">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="Ingredients">
+                <xs:complexType>
+                  <xs:sequence>
+                    <xs:element maxOccurs="unbounded" name="Ingredient" type="xs:string" />
+                  </xs:sequence>
+                </xs:complexType>
+              </xs:element>
+              <xs:element name="BeerChars">
+                <xs:complexType>
+                  <xs:attribute name="AlcoPercentage" type="xs:decimal" use="required" />
+                  <xs:attribute name="Opacity" type="xs:decimal" use="required" />
+                  <xs:attribute name="Filtered" type="xs:boolean" use="required" />
+                  <xs:attribute name="NutritionalValue" type="xs:unsignedShort" use="required" />
+                </xs:complexType>
+              </xs:element>
+              <xs:element name="Bottle">
+                <xs:complexType>
+                  <xs:attribute name="Capacity" type="xs:decimal" use="required" />
+                  <xs:attribute name="Material" type="xs:string" use="required" />
+                </xs:complexType>
+              </xs:element>
+            </xs:sequence>
+            <xs:attribute name="Name" type="xs:string" use="required" />
+            <xs:attribute name="Type" type="xs:string" use="required" />
+            <xs:attribute name="Alco" type="xs:boolean" use="required" />
+            <xs:attribute name="Manufacturer" type="xs:string" use="required" />
+          </xs:complexType>
+        </xs:element>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>
