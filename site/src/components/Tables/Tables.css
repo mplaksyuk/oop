@@ -1,0 +1,7 @@
+table tr {
+    background-color: red;
+}
+
+.table tr {
+    background-color: green;
+}

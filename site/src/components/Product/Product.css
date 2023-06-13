@@ -1,0 +1,12 @@
+.product-weight {
+    color: rgb(255, 136, 0);
+    font-weight: bold;
+}
+
+.product-price {
+    font-size: 20px;
+}
+
+.product-description {
+    height: 100px;
+}
