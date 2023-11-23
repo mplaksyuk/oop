@@ -41,7 +41,7 @@ export default function Login() {
                 <Form.Label>Password</Form.Label>
                 <Form.Control type="password" placeholder="********" { ...register('password', { required : true }) } />
             </Form.Group>
-            <div class="d-flex justify-content-between align-items-center">
+            <div className="d-flex justify-content-between align-items-center">
                 <Button type="submit" variant="success">Sign in</Button>
                 <Auth0Button />
                 <a href="/register"> or Sign Up</a>

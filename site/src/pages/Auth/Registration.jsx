@@ -49,7 +49,7 @@ export default function Registration() {
                 <Form.Label>Confirm password</Form.Label>
                 <Form.Control type="password" placeholder="********" { ...register('confirmPassword', { required : true }) }/>
             </Form.Group>
-            <div class="d-flex justify-content-between align-items-center">
+            <div className="d-flex justify-content-between align-items-center">
                 <Button type="submit" variant="success">Sign up</Button>
                 <a href="/login"> or Sign In</a>
             </div>
