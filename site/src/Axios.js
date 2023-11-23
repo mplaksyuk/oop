@@ -9,6 +9,7 @@ const Axios = a.create({
 Axios.interceptors.request.use(config=> {
     const accessToken = localStorage.getItem("accessToken");
 
+    config.headers["Content-Type"] = 'application/json';
     if(accessToken && !config.headers["Refresh"])
         config.headers["Authorization"] = `Bearer ${accessToken}`;
     
