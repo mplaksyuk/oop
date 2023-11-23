@@ -4,6 +4,7 @@ package com.example.restaurant.controller;
 import java.util.HashMap;
 import java.util.Map;
 
+import org.apache.logging.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -57,8 +58,6 @@ public class AuthController {
     public ResponseEntity<?> auth0Login(@RequestBody Map<String, String> body) {
         String name = body.get("name");
         String email =body.get("email");
-
-        log.info("auth0");
 
         User user = ur.findByEmailAndAuth(email, "auth0");
 
