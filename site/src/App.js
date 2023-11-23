@@ -5,6 +5,7 @@ import Callback from "./pages/Callback/Callback";
 import Login from "./pages/Auth/Login";
 import Registration from "./pages/Auth/Registration";
 import Orders from "./pages/Orders/Orders";
+import Reports from "./pages/Reports/Reports";
 import Axios from './Axios';
 
 import { Routes, Route } from "react-router-dom";
@@ -21,7 +22,8 @@ function App() {
         <Routes>
           <Route path="/" element={<Home />}/>
           <Route path="/callback" element={<Callback />}/>
-          <Route path="/orders" element={<Orders />}/>
+          <Route path="/orders" element={<Orders />} />
+          <Route path="/reports" element={<Reports />}/>
           <Route path="/login" element={<Login />}/>
           <Route path="/register" element={<Registration />}/>
         </Routes>

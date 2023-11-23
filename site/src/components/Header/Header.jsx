@@ -7,6 +7,7 @@ import NavDropdown from 'react-bootstrap/NavDropdown';
 // import { BsPersonCircle } from 'react-icons/bs'
 import { BsCart, BsListOl } from 'react-icons/bs';
 import { IoMdRestaurant } from 'react-icons/io';
+import { FaRegNewspaper } from "react-icons/fa";
 
 import { GiSushis } from 'react-icons/gi';
 
@@ -45,6 +46,13 @@ export default function Header () {
                                 <IoMdRestaurant/>
                                 Меню
                             </Nav.Link>
+                            {
+                                User?.role === 'ADMIN' &&
+                                (<Nav.Link href="/reports" className="d-flex align-items-center gap-1">
+                                    <FaRegNewspaper />
+                                    Звітність
+                                </Nav.Link>)
+                            }
                             <Nav.Link href="/orders" className="d-flex align-items-center gap-1">
                                 <BsListOl/>
                                 Замовлення
