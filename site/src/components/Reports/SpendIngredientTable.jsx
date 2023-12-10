@@ -36,5 +36,6 @@ export default function SpendIngredientTable({ data }) {
                 </TableBody>
             </Table>
         </TableContainer>
+        
     )
 }
