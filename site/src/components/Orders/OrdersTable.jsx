@@ -10,6 +10,8 @@ import TableHead from '@mui/material/TableHead';
 import TableRow from '@mui/material/TableRow';
 import Typography from '@mui/material/Typography';
 import Paper from '@mui/material/Paper';
+import TablePagination from '@mui/material/TablePagination';
+
 
 import { SlArrowUp, SlArrowDown } from 'react-icons/sl'
 import Button from 'react-bootstrap/Button';
@@ -103,24 +105,24 @@ function Row({ row, user }) {
           { totalPrice } грн
         </TableCell>
         <TableCell align="right">
-          {!order?.confirmed && (
+          {order?.confirmed != undefined && !order.confirmed && (
             <>
-            {user.role === "ADMIN" && (
+            {user?.role === "ADMIN" && (
               <Button variant="outline-success" onClick={ handleConfirmOrder }>
                 Підтвердити
               </Button>
             )}
-            {user.role === "USER" && (
+            {user?.role === "USER" && (
               <span className="text-danger">Не підтверждено</span>
             )}
             </>
           )}
           {order?.confirmed && !order?.paid && (
             <>
-              {user.role === "ADMIN" && user.id !== order?.user.id && (
+              {user?.role === "ADMIN" && user.id !== order?.user.id && (
                 <span className="text-danger">Підтверждено, але не сплачено</span>
               )}
-              {(user.role === "USER" || user.id === order?.user.id) && (
+              {(user?.role === "USER" || user.id === order?.user.id) && (
                 <Button variant="outline-success" onClick={ handlePaidOrder }>
                   Сплатити
                 </Button>
@@ -171,6 +173,19 @@ function Row({ row, user }) {
 }
 
 export default function OrdersTable({ orders, user }) {
+  const rowsPerPageOptions = [10, 25, 50];
+  const [page, setPage] = useState(0);
+  const [rowsPerPage, setRowsPerPage] = useState(rowsPerPageOptions[0]);
+
+  const handleChangePage = (event, newPage) => {
+    setPage(newPage);
+  };
+
+  const handleChangeRowsPerPage = (event) => {
+    setRowsPerPage(parseInt(event.target.value, 10));
+    setPage(0);
+  };
+
   return (
     <TableContainer component={Paper}>
       <Table aria-label="collapsible table">
@@ -191,11 +206,25 @@ export default function OrdersTable({ orders, user }) {
           </TableRow>
         </TableHead>
         <TableBody>
-          { orders.map((order) => (
+          {orders.sort((a, b) => {
+            if (a.confirmed < b.confirmed || a.paid < b.paid) return -1;
+            if (a.confirmed > b.confirmed || a.paid > b.paid) return 1;
+            return 0
+          }).slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage)
+            .map((order) => (
               <Row key={order.id} row={ order } user={ user } />
           )) }
         </TableBody>
       </Table>
+      <TablePagination
+        rowsPerPageOptions={rowsPerPageOptions}
+        component="div"
+        count={orders.length}
+        rowsPerPage={rowsPerPage}
+        page={page}
+        onPageChange={handleChangePage}
+        onRowsPerPageChange={handleChangeRowsPerPage}
+      />
     </TableContainer>
   );
 }

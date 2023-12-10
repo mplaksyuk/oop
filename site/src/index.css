@@ -16,3 +16,7 @@ code {
   background: none !important;
   border: none;
 }
+
+p {
+  margin-bottom: .25rem;
+}

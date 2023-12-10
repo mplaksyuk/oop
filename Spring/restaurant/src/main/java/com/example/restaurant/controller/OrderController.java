@@ -93,7 +93,7 @@ public class OrderController {
     }
 
     @PostMapping("/{id}/paid")
-    @PreAuthorize("hasRole('ADMIN')")
+    // @PreAuthorize("hasRole('ADMIN')")
     public ResponseEntity<?> paidOrder(@PathVariable Integer id) {
         Order order = or.findById(id).orElse(null);
         if(order != null) {

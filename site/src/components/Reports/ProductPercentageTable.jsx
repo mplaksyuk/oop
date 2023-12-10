@@ -6,23 +6,23 @@ import TableHead from '@mui/material/TableHead';
 import TableRow from '@mui/material/TableRow';
 import Paper from '@mui/material/Paper';
 
-export default function PopularityProductTable({ data }) {
+export default function ProductPercentageTable({ data }) {
     return (
         <TableContainer  className="report-table" component={Paper}>
             <Table aria-label="collapsible table">
                 <TableHead>
                     <TableRow>
                         <TableCell>Назва Продукту</TableCell>
-                        <TableCell>Кількість</TableCell>
-                        <TableCell>Загальна ціна&nbsp;(грн)</TableCell>
+                        <TableCell>Прибуток (%)</TableCell>
+                        <TableCell>Загальна сума чеків (грн.)</TableCell>
                     </TableRow>
                 </TableHead>
                 <TableBody>
                 { data.map((d) => (
                     <TableRow sx={{ '& > *': { borderBottom: 'unset' } }}>
                         <TableCell>{d?.name}</TableCell>
-                        <TableCell>{d?.quantity}</TableCell>
-                        <TableCell>{d?.totalPrice + ' грн'}</TableCell>
+                        <TableCell>{d?.percent?.toFixed(1) + '%'}</TableCell>
+                        <TableCell>{d?.sumTotal + ' грн.'}</TableCell>
                     </TableRow>
                 )) }
                 </TableBody>

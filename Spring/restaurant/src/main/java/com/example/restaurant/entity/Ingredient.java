@@ -35,7 +35,4 @@ public class Ingredient {
     @Enumerated(EnumType.STRING)
     @Column(name = "unit", updatable = false, nullable = false)
     private Unit unit = Unit.MILLIGRAM;
-
-    
-    private Integer quantity;
 }

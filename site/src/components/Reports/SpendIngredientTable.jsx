@@ -6,15 +6,22 @@ import TableHead from '@mui/material/TableHead';
 import TableRow from '@mui/material/TableRow';
 import Paper from '@mui/material/Paper';
 
-export default function PopularityProductTable({ data }) {
+export default function SpendIngredientTable({ data }) {
+    const units = {
+        'MILLIGRAM': 'мг.',
+        'GRAM': 'г.',
+        'MILLILITER': ' мл.',
+        'QUANTITY': 'шт.'
+    }
     return (
         <TableContainer  className="report-table" component={Paper}>
             <Table aria-label="collapsible table">
                 <TableHead>
                     <TableRow>
-                        <TableCell>Назва Продукту</TableCell>
+                        <TableCell>Назва Інгредієнту</TableCell>
                         <TableCell>Кількість</TableCell>
-                        <TableCell>Загальна ціна&nbsp;(грн)</TableCell>
+                        <TableCell>Загальна Вага</TableCell>
+                        <TableCell>Загальна Ціна (грн.)</TableCell>
                     </TableRow>
                 </TableHead>
                 <TableBody>
@@ -22,7 +29,8 @@ export default function PopularityProductTable({ data }) {
                     <TableRow sx={{ '& > *': { borderBottom: 'unset' } }}>
                         <TableCell>{d?.name}</TableCell>
                         <TableCell>{d?.quantity}</TableCell>
-                        <TableCell>{d?.totalPrice + ' грн'}</TableCell>
+                        <TableCell>{d?.volume + ' ' + units[d?.unit]}</TableCell>
+                        <TableCell>{d?.totalPrice + ' грн.'}</TableCell>
                     </TableRow>
                 )) }
                 </TableBody>
